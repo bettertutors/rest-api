@@ -1,0 +1,4 @@
+bottle
+webtest
+git+https://github.com/ng-bottle-libraries/oauth2-bottle-app#egg=oauth2_bottle_app
+git+https://github.com/ng-bottle-libraries/namespace-user-api#egg=namespace_user_api
