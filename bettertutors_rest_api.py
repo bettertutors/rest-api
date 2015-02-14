@@ -1,12 +1,11 @@
 from datetime import datetime
 
 from bottle import Bottle, response
-from oauth2_bottle_app import oauth2_app, __version__ as oauth2_app_version
-from namespace_user_api import user_api, __version__ as user_api_version
+# from namespace_user_api import user_api, __version__ as user_api_version
 
 rest_api = Bottle(catchall=False, autojson=True)
-rest_api.merge(oauth2_app)
-rest_api.merge(user_api)
+# rest_api.merge(oauth2_app)
+# rest_api.merge(user_api)
 
 __version__ = '0.0.1'
 
@@ -19,9 +18,7 @@ def enable_cors():
 @rest_api.route('/api')
 @rest_api.route('/api/status')
 def status():
-    return {'oauth2_app_version': oauth2_app_version,
-            'user_api_version': user_api_version,
-            'rest_api_version': __version__,
+    return {'rest_api_version': __version__,
             'server_time': datetime.now().strftime("%I:%M%p on %B %d, %Y")}
 
 

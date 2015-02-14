@@ -1,7 +1,7 @@
 from setuptools import setup
-from namespace_rest_api import __version__
+from bettertutors_rest_api import __version__
 
 if __name__ == '__main__':
-    setup(name='namespace_user_api', version=__version__,
-          author='Samuel Marks', license='MIT', py_modules=['namespace_user_api'],
+    setup(name='bettertutors_rest_api', version=__version__,
+          author='Samuel Marks', license='TBA', py_modules=['bettertutors_rest_api'],
           test_suite='tests')
