@@ -1,5 +1,5 @@
 bottle
 webtest
 gunicorn
-git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api
-git+https://github.com/bettertutors/sql-models#egg=bettertutors_sql_models
+-e git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api
+-e git+https://github.com/bettertutors/sql-models#egg=bettertutors_sql_models

@@ -9,7 +9,7 @@ from bettertutors_sql_models import __version__ as sql_models_version
 rest_api = Bottle(catchall=False, autojson=True)
 rest_api.merge(user_app)
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 
 @rest_api.hook('after_request')
