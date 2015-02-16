@@ -1,3 +1,4 @@
 bottle
 webtest
 gunicorn
+git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api

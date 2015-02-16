@@ -13,10 +13,10 @@ class TestRestApi(TestCase):
     def test_setup_dots(self):
         """ Not a full semver check, just checking if it starts like num.num.num """
         status_resp = self.app.get('/api/status').json
-        for k in status_resp.keys():
-            if k.endswith('_version'):
-                self.assertTrue(match(self.has_three_nums, status_resp[k]), "Not in semver format")
         # Just an example test, could obviously import `__version__`, but want scaffold for API functional testing
+        self.assertTrue(match(self.has_three_nums,
+                              status_resp[filter(lambda k: k.endswith('_version'), status_resp.keys())[0]]),
+                        "Not in semver format")
 
 
 if __name__ == '__main__':
