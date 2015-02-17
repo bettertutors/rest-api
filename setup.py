@@ -1,7 +1,16 @@
 from setuptools import setup
-from bettertutors_rest_api import __version__
 
 if __name__ == '__main__':
-    setup(name='bettertutors_rest_api', version=__version__,
-          author='Samuel Marks', license='TBA', py_modules=['bettertutors_rest_api'],
-          test_suite='tests')
+    setup(
+        name='bettertutors_rest_api',
+        version='0.2.3',
+        author='Samuel Marks',
+        py_modules=['bettertutors_rest_api'],
+        test_suite='tests',
+        install_requires=[
+            'bottle', 'webtest', 'gunicorn', 'bettertutors_user_api'
+        ],
+        dependency_links=[
+            'git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api'
+        ]
+    )
