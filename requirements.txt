@@ -1,0 +1,1 @@
+https://github.com/bettertutors/user-api/archive/master.zip#egg=bettertutors_user_api
