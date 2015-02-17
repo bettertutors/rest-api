@@ -1,15 +1,15 @@
 from datetime import datetime
 from os import environ
 from sys import platform
+from pkg_resources import get_distribution
 
 from bottle import Bottle, response
-from bettertutors_user_api import user_app, __version__ as user_api_version
-from bettertutors_sql_models import __version__ as sql_models_version
+from bettertutors_user_api import user_app
 
 rest_api = Bottle(catchall=False, autojson=True)
 rest_api.merge(user_app)
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 @rest_api.hook('after_request')
@@ -21,8 +21,8 @@ def enable_cors():
 @rest_api.route('/api/status')
 def status():
     return {'rest_api_version': __version__,
-            'user_api_version': user_api_version,
-            'sql_models_version': sql_models_version,
+            'user_api_version': get_distribution('bettertutors-user-api').version,
+            'sql_models_version': get_distribution('bettertutors-sql-models').version,
             'server_time': datetime.now().strftime("%I:%M%p on %B %d, %Y")}
 
 
