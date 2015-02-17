@@ -3,7 +3,7 @@ from setuptools import setup
 if __name__ == '__main__':
     setup(
         name='bettertutors_rest_api',
-        version='0.2.3',
+        version='0.2.4',
         author='Samuel Marks',
         py_modules=['bettertutors_rest_api'],
         test_suite='tests',
@@ -11,6 +11,6 @@ if __name__ == '__main__':
             'bottle', 'webtest', 'gunicorn', 'bettertutors_user_api'
         ],
         dependency_links=[
-            'git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api'
+            'https://github.com/bettertutors/user-api/archive/master.zip#egg=bettertutors_user_api'
         ]
     )
