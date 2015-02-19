@@ -1,1 +1,6 @@
-git+https://github.com/bettertutors/user-api
+https://github.com/bettertutors/user-api/archive/master.zip
+
+# Hack starts now, need to include all GitHub links in this repo rather than local to a specific project:
+
+# user-api deps
+https://github.com/bettertutors/sql-models/archive/master.zip
