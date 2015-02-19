@@ -1,3 +1,7 @@
+bottle
+webtest
+gunicorn
+
 https://github.com/bettertutors/user-api/archive/master.zip#egg=bettertutors_user_api
 
 # Hack starts now, need to include all GitHub links in this repo rather than local to a specific project:
