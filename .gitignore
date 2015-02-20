@@ -1,3 +1,4 @@
+.eggs/
 *.pyproj
 web.config
 obj/
