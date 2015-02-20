@@ -1,7 +1,7 @@
 from datetime import datetime
 from os import environ, path
 from sys import platform
-from pkg_resources import get_distribution, DistributionNotFound
+from pkg_resources import get_distribution, DistributionNotFound, Distribution
 
 from bottle import Bottle, response
 
@@ -30,9 +30,9 @@ def get_version_of(package):
             return (lambda s: s[s.find("'") + 1:s.rfind("'")])(filter(lambda l: l.startswith('version'),
                                                                       map(lambda l: l.strip(),
                                                                           open('setup.py').readlines()))[0])
-        return '"{package_name}" not found installed...'.format(package_name=package)
+        return Distribution(version='"{package_name}" not found installed...'.format(package_name=package))
 
-    return _dist.version
+    return _dist
 
 
 @rest_api.hook('after_request')
@@ -43,7 +43,7 @@ def enable_cors():
 @rest_api.route('/api')
 @rest_api.route('/api/status')
 def status():
-    return {'rest_api_version': get_version_of('bettertutors_rest_api'),
+    return {'rest_api_version': get_version_of('bettertutors_rest_api').version,
             'user_api_version': get_distribution('bettertutors-user-api').version,
             'sql_models_version': get_distribution('bettertutors-sql-models').version,
             'static_api_version': get_version_of('bettertutors-static-api').version,
