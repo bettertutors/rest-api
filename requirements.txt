@@ -1,11 +1,11 @@
--U bottle
--U webtest
--U gunicorn
+bottle
+webtest
+gunicorn
 
--U https://github.com/bettertutors/user-api/archive/master.zip#egg=bettertutors_user_api
--U https://github.com/bettertutors/static-api/archive/master.zip#egg=bettertutors_static_api
+-e https://github.com/bettertutors/user-api/archive/master.zip#egg=bettertutors_user_api
+-e https://github.com/bettertutors/static-api/archive/master.zip#egg=bettertutors_static_api
 
 # Hack starts now, need to include all GitHub links in this repo rather than local to a specific project:
 
 # user-api deps
--U https://github.com/bettertutors/sql-models/archive/master.zip#egg=bettertutors_sql_models
+-e https://github.com/bettertutors/sql-models/archive/master.zip#egg=bettertutors_sql_models
