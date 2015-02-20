@@ -4,14 +4,18 @@ from sys import platform
 from pkg_resources import get_distribution, DistributionNotFound
 
 from bottle import Bottle, response
+
+from bettertutors_static_api import static_app
 from bettertutors_user_api import user_app
 
+
 rest_api = Bottle(catchall=False, autojson=True)
+rest_api.merge(static_app)
 rest_api.merge(user_app)
 
 
 def get_version_of(package):
-    # Stolen from: http://stackoverflow.com/a/17638236/587021
+    # Adapted from: http://stackoverflow.com/a/17638236/587021
     try:
         _dist = get_distribution(package)
         # Normalize case for Windows systems
@@ -26,7 +30,7 @@ def get_version_of(package):
             return (lambda s: s[s.find("'") + 1:s.rfind("'")])(filter(lambda l: l.startswith('version'),
                                                                       map(lambda l: l.strip(),
                                                                           open('setup.py').readlines()))[0])
-        return 'Please install this project with setup.py'
+        return '"{package_name}" not found installed...'.format(package_name=package)
 
     return _dist.version
 
@@ -42,6 +46,7 @@ def status():
     return {'rest_api_version': get_version_of('bettertutors_rest_api'),
             'user_api_version': get_distribution('bettertutors-user-api').version,
             'sql_models_version': get_distribution('bettertutors-sql-models').version,
+            'static_api_version': get_version_of('bettertutors-static-api').version,
             'server_time': datetime.now().strftime("%I:%M%p on %B %d, %Y")}
 
 

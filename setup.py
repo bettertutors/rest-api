@@ -1,10 +1,11 @@
 from setuptools import setup
 
 if __name__ == '__main__':
+    package_name = 'bettertutors_rest_api'
     setup(
-        name='bettertutors_rest_api',
+        name=package_name,
         version='0.2.13',
         author='Samuel Marks',
-        py_modules=['bettertutors_rest_api'],
+        py_modules=[package_name],
         test_suite='tests'
     )
