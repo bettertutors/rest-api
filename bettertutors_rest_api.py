@@ -26,10 +26,12 @@ def get_version_of(package):
             raise DistributionNotFound
 
     except DistributionNotFound:
-        if package + '.py' == __file__:
-            return (lambda s: s[s.find("'") + 1:s.rfind("'")])(filter(lambda l: l.startswith('version'),
-                                                                      map(lambda l: l.strip(),
-                                                                          open('setup.py').readlines()))[0])
+        if path.basename(__file__).startswith(package):
+            return Distribution(version=(lambda s: s[s.find("'") + 1:s.rfind("'")])(
+                filter(lambda l: l.startswith('version'),
+                       map(lambda l: l.strip(),
+                           open(path.join(path.dirname(__file__), 'setup.py')).readlines()))[0]
+            ))
         return Distribution(version='"{package_name}" not found installed...'.format(package_name=package))
 
     return _dist
