@@ -3,7 +3,6 @@ webtest
 gunicorn
 
 -e git+https://github.com/bettertutors/user-api#egg=bettertutors_user_api
--e git+https://github.com/bettertutors/static-api#egg=bettertutors_static_api
 
 # Hack starts now, need to include all GitHub links in this repo rather than local to a specific project:
 
